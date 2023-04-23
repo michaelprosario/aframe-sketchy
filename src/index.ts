@@ -6,8 +6,7 @@ const fs = require('fs');
 let drawQueue = new DrawQueue();
 let bot = new Bot(drawQueue);
 
-
-function test1() {
+function art1() {
     for (var count2 = 0; count2 < 39; count2++) {
         bot.drawColor = 'purple';
         bot.positionX = (mathRandomInt(1, 100));
@@ -35,7 +34,7 @@ function mathRandomInt(a: number, b: number) {
     return Math.floor(Math.random() * (b - a + 1) + a);
 }
 
-function test2() {
+function art2() {
     let direction: number = 0;
     for (var count = 0; count < 50; count++) {
         bot.drawBox(0.25, 0.25, 0.25);
@@ -57,7 +56,7 @@ function test2() {
     fs.writeFileSync('output.html', html);
 }
 
-function test3() {
+function testSphere() {
     for (var count = 0; count < 3; count++) {
         bot.drawColor = 'red';
         bot.drawSphere(1);
@@ -69,6 +68,6 @@ function test3() {
     fs.writeFileSync('output.html', html);
 }
 
-test3();
+testSphere();
 
 
