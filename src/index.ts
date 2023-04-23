@@ -57,6 +57,18 @@ function test2() {
     fs.writeFileSync('output.html', html);
 }
 
-test1();
+function test3() {
+    for (var count = 0; count < 3; count++) {
+        bot.drawColor = 'red';
+        bot.drawSphere(1);
+        bot.moveForward(3);
+    }
+
+    var service = new AframeWriterService();
+    var html = service.makeHtmlFromItems(drawQueue.items);
+    fs.writeFileSync('output.html', html);
+}
+
+test3();
 
 
