@@ -1,6 +1,7 @@
 
 import { Bot, DrawQueue } from './lib/bot';
 import { AframeWriterService } from './lib/aframe-writer-service';
+const fs = require('fs');
 
 let drawQueue = new DrawQueue();
 let bot = new Bot(drawQueue);
@@ -21,7 +22,7 @@ function test1() {
 
     var service = new AframeWriterService();
     var html = service.makeHtmlFromItems(drawQueue.items);
-    console.log(html);
+    fs.writeFileSync('output.html', html);
 }
 
 function mathRandomInt(a: number, b: number) {
@@ -53,7 +54,7 @@ function test2() {
 
     var service = new AframeWriterService();
     var html = service.makeHtmlFromItems(drawQueue.items);
-    console.log(html);
+    fs.writeFileSync('output.html', html);
 }
 
 test1();

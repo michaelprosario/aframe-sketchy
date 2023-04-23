@@ -16,6 +16,8 @@ export class AframeWriterService {
     makeHtmlFromItems(items: Array<DrawElement>): string {
         const baseHtml = getBaseHtml();
         const dom = new JSDOM(baseHtml);
+
+
         const document = dom.window.document;
         const scene = document.createElement("a-scene");
         document.body.appendChild(scene);
@@ -34,7 +36,7 @@ export class AframeWriterService {
             }
         }
 
-        return scene.outerHTML;
+        return document.documentElement.outerHTML;
     }
 
     private getAframePoint(point: Point3): string {
