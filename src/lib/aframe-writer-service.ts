@@ -1,14 +1,24 @@
 import { JSDOM } from 'jsdom'
-import { DrawElement } from './DrawElement';
-import { Point3 } from './Point3.js';
+import { DrawElement } from './draw-element';
+import { Point3 } from './point3.js';
+
+function getBaseHtml() {
+    return `
+    <html>
+    <head>
+    <script src='https://aframe.io/releases/1.4.0/aframe.min.js'></script>
+    </head>
+    <body></body>
+    </html>`;
+}
 
 export class AframeWriterService {
     makeHtmlFromItems(items: Array<DrawElement>): string {
-        const dom = new JSDOM(`<!DOCTYPE html> <html><head><script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script></head><body></body></html>`);
+        const baseHtml = getBaseHtml();
+        const dom = new JSDOM(baseHtml);
         const document = dom.window.document;
         const scene = document.createElement("a-scene");
         document.body.appendChild(scene);
-
 
         for (let item of items) {
             if (item.geometry.primitive === "box") {

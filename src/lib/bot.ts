@@ -1,26 +1,21 @@
-import { DrawElement } from "./DrawElement";
-import { DrawLocation } from "./DrawLocation";
+import { DrawElement } from "./draw-element";
+import { DrawLocation } from "./draw-location";
 
-export class DrawQueue
-{
+export class DrawQueue {
     items: Array<DrawElement>;
-    constructor()
-    {
+    constructor() {
         this.items = [];
     }
 
-    addItem(item: DrawElement)
-    {
+    addItem(item: DrawElement) {
         this.items.push(item);
     }
 
 }
 
-export class Bot 
-{
+export class Bot {
 
-    constructor(private drawQueue: DrawQueue)
-    {
+    constructor(private drawQueue: DrawQueue) {
 
     }
 
@@ -74,7 +69,7 @@ export class Bot
     drawSphere(radius: number) {
         let el = new DrawElement();
 
-        el.geometry = 
+        el.geometry =
         {
             primitive: 'sphere',
             radius: radius
@@ -84,7 +79,7 @@ export class Bot
         var sY = this.positionY + radius / 2;
         var sZ = this.positionZ + radius / 2;
 
-        el.position =  { x: sX, y: sY, z: sZ };
+        el.position = { x: sX, y: sY, z: sZ };
         el.color = this.drawColor;
         this.drawQueue.addItem(el);
     }
@@ -97,7 +92,7 @@ export class Bot
         }
 
         el.position = { x: x, y: y, z: z };
-        el.color =  this.drawColor;
+        el.color = this.drawColor;
         this.drawQueue.addItem(el);
     }
 
@@ -133,7 +128,7 @@ export class Bot
         var sY = this.positionY + radius / 2;
         var sZ = this.positionZ + radius / 2;
 
-        el.position =  { x: sX, y: sY, z: sZ }
+        el.position = { x: sX, y: sY, z: sZ }
         el.color = this.drawColor;
 
         this.drawQueue.addItem(el);
@@ -168,8 +163,7 @@ export class Bot
         this.positionZ += deltaZ;
     }
 
-    moveForward(steps: number) 
-    {
+    moveForward(steps: number) {
         this.forward(steps);
     }
 
