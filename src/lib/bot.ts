@@ -1,29 +1,5 @@
-export class DrawLocation{
-    x: number = 0;
-    y: number = 0;
-    z: number = 0;
-    angle: number = 0;
-}
-
-export class Point3
-{ 
-    x: number = 0; 
-    y: number = 0; 
-    z: number = 0; 
-}
-
-export class DrawElement{
-    geometry: any;
-    position: Point3;
-    color: string;
-    rotation: Point3;
-
-    constructor(){
-        this.color = 'red';
-        this.rotation = new Point3();
-        this.position = new Point3();
-    }
-}
+import { DrawElement } from "./DrawElement";
+import { DrawLocation } from "./DrawLocation";
 
 export class DrawQueue
 {
